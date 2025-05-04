@@ -23,7 +23,7 @@ if os.path.exists(db_location):
 documents = []
 
 for i, row in df.iterrows():
-    document = Document(
+    document  = Document(
         page_content=row["Nama Bahan"] + " " + row["description"],
         metadata={"kode": row["Kode"], "id": str(i)}
     )
@@ -38,7 +38,8 @@ vector_store = Chroma(
 vector_store.add_documents(documents)
 
 retriever = vector_store.as_retriever(
-    search_kwargs = {"k" : 5}
+    search_type="mmr",
+        search_kwargs={'k': 6, 'lambda_mult': 0.25}
 )
 
 # Fungsi untuk cleanup

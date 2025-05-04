@@ -36,7 +36,9 @@ for _, row in df.iterrows():
     descriptions.append(text)
     
 df['description'] = descriptions
-df.drop(columns=['_id','Kalori', 'Protein', 'Lemak', 'Karbohidrat', 'Serat'], inplace=True)
+df.drop(columns=['Kalori', 'Protein', 'Lemak', 'Karbohidrat', 'Serat'], inplace=True)
 
-df.to_csv('Dataset/food_data.csv', index=False, encoding='utf-8')
-print('DataFrame telah disimpan ke food_data.csv')
+# df.to_csv('Dataset/food_data.csv', index=False, encoding='utf-8')
+# print('DataFrame telah disimpan ke food_data.csv')
+
+# print(df)
